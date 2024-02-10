@@ -13,7 +13,6 @@ python = "3.11.7"
 requests = "^2.31.0"
 mypy = "^1.8.0"
 flake8 = "^7.0.0"
-wxpython = "^4.2.1"
 pyo = {path = "packages/pyo-1.0.4-cp311-cp311-win_amd64.whl"}
 
 
