@@ -4,6 +4,7 @@ import requests
 
 from pyo_proj_amort42 import __version__
 
+
 def main(argv=None) -> int:
     """
     Parse name and print greeting.
