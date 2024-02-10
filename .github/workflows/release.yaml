@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # enable manual release
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: amort42/actions-python/lint@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: amort42/actions-python/test@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          test-flags: --version
+
+  release:
+    name: Release
+    needs: [lint, test]
+    runs-on: ubuntu-latest
+    outputs:
+      new-release-published: ${{ steps.release.outputs.new-release-published }}
+      new-release-version: ${{ steps.release.outputs.new-release-version }}
+    steps:
+      - uses: amort42/actions-python/release@main
+        id: release
+        with:
+          github-token: ${{ secrets.ADMIN_TOKEN || secrets.GITHUB_TOKEN }}
