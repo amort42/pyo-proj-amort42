@@ -38,8 +38,8 @@ def test_main_unknown_name(capsys):
     Args:
         capsys: pytest fixture to capture stdout and stderr.
     """
-    assert main(["--name", "bkljbgnhrk;tnhbrnbs;nbdjynbhy,djn"]) == 1
+    assert main(["--name", "bkljbgnhrk"]) == 1
     out, err = capsys.readouterr()
-    output = "Hello bkljbgnhrk;tnhbrnbs;nbdjynbhy,djn!\nstatus.code is 404\nRunning version 0.1.0\n"
+    output = "Hello bkljbgnhrk!\nstatus.code is 404\nRunning version 0.1.0\n"
     assert out == output
     assert err == ""
