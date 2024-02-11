@@ -26,8 +26,8 @@ jobs:
       - name: Setup Python 3.11.7
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11.7'
-          cache: 'poetry'
+          python-version: "3.11.7"
+          cache: "poetry"
       # install requirements (including dev dependencies)
       - name: Install requirements
         run: poetry install --with test
@@ -50,9 +50,11 @@ jobs:
         if: ${{ success() && github.event_name == 'pull_request' }}
         run: |
           set -o pipefail
-          echo '# Coverage report' >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
-          cat pytest-coverage.txt >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
-          echo '\n\n\n'
-          echo '${{ steps.coverageComment.outputs.coverageHtml }}' >> $GITHUB_STEP_SUMMARY
+          {
+            echo '# Coverage report'
+            echo '```'
+            cat pytest-coverage.txt
+            echo '```'
+            printf '\n\n\n'
+            echo "${{ steps.coverageComment.outputs.coverageHtml }}"
+          } > "$GITHUB_STEP_SUMMARY"

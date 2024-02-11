@@ -17,7 +17,7 @@ def main(argv=None) -> int:
         "--name", help="The name to greet and count repos for", default="world"
     )
     args = parser.parse_args(argv)
-    
+
     if args.name == "":
         print("Username cannot be empty")
         return 1

@@ -30,6 +30,7 @@ def test_main_empty_name(capsys):
     assert out == "Username cannot be empty\n"
     assert err == ""
 
+
 def test_main_unknown_name(capsys):
     """
     Test the main function with an incorrect name.
@@ -39,5 +40,8 @@ def test_main_unknown_name(capsys):
     """
     assert main(["--name", "bkljbgnhrk;tnhbrnbs;nbdjynbhy,djn"]) == 1
     out, err = capsys.readouterr()
-    assert out == "Hello bkljbgnhrk;tnhbrnbs;nbdjynbhy,djn!\nstatus.code is 404\nRunning version 0.1.0\n"
+    assert (
+        out
+        == "Hello bkljbgnhrk;tnhbrnbs;nbdjynbhy,djn!\nstatus.code is 404\nRunning version 0.1.0\n"
+    )
     assert err == ""
