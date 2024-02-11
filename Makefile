@@ -27,7 +27,7 @@ unit-tests: ## run unit-tests with pytest
 
 .PHONY: unit-tests-cov
 unit-tests-cov: ## run unit-tests with pytest and show coverage (terminal + html)
-	@pytest --doctest-modules --cov=src --cov-report term-missing --cov-report=html
+	@pytest --doctest-modules --cov=src --cov-report term-missing --cov-report=html --junitxml=pytest.xml | tee pytest-coverage.txt
 
 .PHONY: unit-tests-cov-fail
 unit-tests-cov-fail: ## run unit tests with pytest and show coverage (terminal + html) & fail if coverage too low & create files for CI
