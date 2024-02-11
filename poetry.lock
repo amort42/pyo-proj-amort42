@@ -438,20 +438,6 @@ files = [
 ]
 
 [[package]]
-name = "pyo"
-version = "1.0.4"
-description = "Python module to build digital signal processing program."
-optional = false
-python-versions = ">=3.6, <4"
-files = [
-    {file = "pyo-1.0.4-cp311-cp311-win_amd64.whl", hash = "sha256:eb99952e9a6b2530d017402fc25c565c19ce89539495b8b70a8a116884a2d214"},
-]
-
-[package.source]
-type = "file"
-url = "packages/pyo-1.0.4-cp311-cp311-win_amd64.whl"
-
-[[package]]
 name = "pytest"
 version = "8.0.0"
 description = "pytest: simple powerful testing with Python"
@@ -590,4 +576,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "3.11.7"
-content-hash = "aa040ce4b451fab13b520e06ccc1c235c94f8d074b790fe3902c9367ecdd00a5"
+content-hash = "e1934c8769fa7838dc332ac6edfe3813a3ed7a5dbc8741e473d5214e9f6cb8aa"
