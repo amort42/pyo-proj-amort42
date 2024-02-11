@@ -2,7 +2,7 @@ import argparse
 
 import requests
 
-from pyo_proj_amort42 import __version__
+from src.pyo_proj_amort42 import __version__
 
 
 def main(argv=None) -> int:
@@ -17,7 +17,7 @@ def main(argv=None) -> int:
         "--name", help="The name to greet and count repos for", default="world"
     )
     args = parser.parse_args(argv)
-    print(f"Running version {__version__}")
+    
     if args.name == "":
         print("Username cannot be empty")
         return 1
@@ -27,7 +27,7 @@ def main(argv=None) -> int:
     repos = requests.get(f"https://api.github.com/users/{args.name}/repos")
     if repos.status_code != 200:
         print(f"status.code is {repos.status_code}")
-        print(f"Failed to fetch repos for {args.name}")
+        print(f"Running version {__version__}")
         return 1
     repos = repos.json()
     print(f"You have {len(repos)} repos.")  # type: ignore
