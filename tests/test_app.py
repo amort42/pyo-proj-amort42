@@ -40,8 +40,9 @@ def test_main_unknown_name(capsys):
     """
     assert main(["--name", "bkljbgnhrk;tnhbrnbs;nbdjynbhy,djn"]) == 1
     out, err = capsys.readouterr()
+    output = "Hello bkljbgnhrk;tnhbrnbs;nbdjynbhy,djn!\nstatus.code is 404\nRunning version 0.1.0\n"
     assert (
         out
-        == "Hello bkljbgnhrk;tnhbrnbs;nbdjynbhy,djn!\nstatus.code is 404\nRunning version 0.1.0\n"
+        == output
     )
     assert err == ""
