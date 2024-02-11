@@ -2,7 +2,7 @@ import argparse
 
 import requests
 
-from src.pyo_proj_amort42 import __version__
+from pyo_proj_amort42 import __version__
 
 
 def main(argv=None) -> int:
